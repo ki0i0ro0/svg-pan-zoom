@@ -776,6 +776,14 @@ SvgPanZoom.prototype.getPublicInstance = function() {
       isZoomEnabled: function() {
         return !!that.options.zoomEnabled;
       },
+      enablePreventDefault: function() {
+        that.options.preventMouseEventsDefault = true;
+        return that.pi;
+      },
+      disablePreventDefault: function() {
+        that.options.preventMouseEventsDefault = false;
+        return that.pi;
+      },
       enableControlIcons: function() {
         if (!that.options.controlIconsEnabled) {
           that.options.controlIconsEnabled = true;

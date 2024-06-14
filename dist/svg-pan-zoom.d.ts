@@ -9,7 +9,7 @@ declare namespace SvgPanZoom {
      * can be querySelector string or SVGElement (default enabled)
      * @type {string|HTMLElement|SVGElement}
      */
-    viewportSelector?: string|HTMLElement|SVGElement;
+    viewportSelector?: string | HTMLElement | SVGElement;
     /**
      * enable or disable panning (default enabled)
      * @type {boolean}
@@ -49,7 +49,10 @@ declare namespace SvgPanZoom {
     refreshRate?: number | "auto"; // (default 'auto')
     beforeZoom?: (oldScale: number, newScale: number) => void | boolean;
     onZoom?: (newScale: number) => void;
-    beforePan?: (oldPan: Point, newPan: Point) => void | boolean | PointModifier;
+    beforePan?: (
+      oldPan: Point,
+      newPan: Point
+    ) => void | boolean | PointModifier;
     onPan?: (newPan: Point) => void;
     onUpdatedCTM?: (newCTM: SVGMatrix) => void;
     customEventsHandler?: CustomEventHandler; // (default null)
@@ -73,8 +76,8 @@ declare namespace SvgPanZoom {
   }
 
   interface PointModifier {
-    x: number|boolean;
-    y: number|boolean;
+    x: number | boolean;
+    y: number | boolean;
   }
 
   interface Sizes {
@@ -97,7 +100,7 @@ declare namespace SvgPanZoom {
      * @param  {Object} options        provides customization options at the initialization of the object.
      * @return {Instance}              Current instance
      */
-    (svg: string|HTMLElement|SVGElement, options?: Options): Instance;
+    (svg: string | HTMLElement | SVGElement, options?: Options): Instance;
 
     /**
      * Enables Panning on svg element
@@ -117,7 +120,9 @@ declare namespace SvgPanZoom {
      */
     isPanEnabled(): boolean;
 
-    setBeforePan(fn: (oldPoint: Point, newPoint: Point) => void | boolean | PointModifier): Instance;
+    setBeforePan(
+      fn: (oldPoint: Point, newPoint: Point) => void | boolean | PointModifier
+    ): Instance;
 
     setOnPan(fn: (point: Point) => void): Instance;
 
@@ -151,6 +156,10 @@ declare namespace SvgPanZoom {
 
     disableZoom(): Instance;
 
+    enablePreventDefault(): Instance;
+
+    disablePreventDefault(): Instance;
+
     isZoomEnabled(): boolean;
 
     enableControlIcons(): Instance;
@@ -177,7 +186,9 @@ declare namespace SvgPanZoom {
 
     setMaxZoom(zoom: number): Instance;
 
-    setBeforeZoom(fn: (oldScale: number, newScale: number) => void | boolean): Instance;
+    setBeforeZoom(
+      fn: (oldScale: number, newScale: number) => void | boolean
+    ): Instance;
 
     setOnZoom(fn: (scale: number) => void): Instance;
 
